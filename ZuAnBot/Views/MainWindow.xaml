@@ -1,0 +1,11 @@
+﻿<mah:MetroWindow x:Class="ZuAnBot.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="350" Width="525" Activated="MetroWindow_Activated" Deactivated="MetroWindow_Deactivated">
+    <Grid>
+        <ContentControl prism:RegionManager.RegionName="MainRegion" />
+    </Grid>
+</mah:MetroWindow>

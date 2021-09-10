@@ -1,0 +1,15 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ZuAnBot.Views.Main"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="使用方法："/><LineBreak/><Run Text="&#x9;"/><Run Text="1、"/><Run Text="开启祖安模式"/><LineBreak/><Run Text="&#x9;2、"/><Run Text="进入游戏"/><LineBreak/><Run Text="&#x9;"/><Run Text="3、按下快捷键 Ctrl+Shift+Z"/></TextBlock>
+        <ToggleButton Height="30" Content="开启祖安模式" HorizontalAlignment="Center" IsChecked="{Binding State}" Grid.Row="1"/>
+    </Grid>
+</UserControl>
