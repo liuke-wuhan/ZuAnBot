@@ -22,7 +22,7 @@ namespace ZuAnBot_WinForm
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //HotKey.RegisterHotKey(Handle, 101, HotKey.KeyModifiers.Alt, Keys.Tab);
+            var words = ManifestResourceUtils.GetJsonObject<Words>("zuanWords_min.json");
 
             hook = new GlobalKeyboardHook();
             hook.KeyDown += Hook_KeyDown;
@@ -32,53 +32,14 @@ namespace ZuAnBot_WinForm
 
         private void Hook_KeyDown(object sender, KeyEventArgs e)
         {
-            var word = Apis.GetZAWord();
+            var word = Apis.GetLoacalWord(Apis.WordType.zuanMin);
 
-            #region 打字
             Simulate.Events().Click(WindowsInput.Events.KeyCode.Enter).Wait(75).Click(word).Wait(75).Click(WindowsInput.Events.KeyCode.Enter).Invoke();
-            #endregion
-
-            //MessageBox.Show("勾子");
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //HotKey.UnregisterHotKey(Handle, 101);
             hook.unhook();
         }
-
-        protected override void WndProc(ref Message m)
-        {
-
-            const int WM_HOTKEY = 0x0312;
-            //按快捷键 
-            switch (m.Msg)
-            {
-                case WM_HOTKEY:
-                    switch (m.WParam.ToInt32())
-                    {
-                        case 100:
-                            //MessageBox.Show("按下的是Shift+S");    
-                            break;
-                        case 101:
-                            //var word = Apis.GetZAWord().Result;
-
-                            //Clipboard.SetDataObject(word);
-                            //var key = new KeyboardKey(Keys.V);
-                            //key.PressAndRelease(true, false);
-                            //new KeyboardKey(Keys.Enter).PressAndRelease(false, false);
-
-                            MessageBox.Show("按下的是Shift+S");
-                            break;
-                        case 102:
-                            //MessageBox.Show("按下的是Alt+D");
-                            break;
-                    }
-                    break;
-            }
-            base.WndProc(ref m);
-        }
-
-
     }
 }
