@@ -9,7 +9,7 @@
     <ProjectGuid>{EEBC4295-07ED-4654-AB05-9200398AB9C2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ZuAnBot_WinForm</RootNamespace>
-    <AssemblyName>祖安人</AssemblyName>
+    <AssemblyName>祖安人2.0</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,12 +37,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Assets\lol.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -50,6 +53,7 @@
       <HintPath>..\packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -76,6 +80,7 @@
     <Compile Include="GlobalKeyboardHook.cs" />
     <Compile Include="HotKey.cs" />
     <Compile Include="KeyboardKey.cs" />
+    <Compile Include="LogHelper.cs" />
     <Compile Include="ManifestResourceUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".nuget\mouse-keyboard-hook-logo.png" />
+    <Content Include="Assets\favicon.ico" />
     <Content Include="ILMergeOrder.txt" />
     <Content Include="Assets\lol.ico" />
   </ItemGroup>

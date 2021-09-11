@@ -25,12 +25,12 @@ namespace ZuAnBot_WinForm
             var words = ManifestResourceUtils.GetJsonObject<Words>("zuanWords_min.json");
 
             hook = new GlobalKeyboardHook();
-            hook.KeyDown += Hook_KeyDown;
-            hook.HookedKeys.Add(Keys.Delete);            
+            hook.KeyUp += Hook_KeyUp;
+            hook.HookedKeys.Add(Keys.F1);            
             hook.hook();
         }
 
-        private void Hook_KeyDown(object sender, KeyEventArgs e)
+        private void Hook_KeyUp(object sender, KeyEventArgs e)
         {
             var word = Apis.GetLoacalWord(Apis.WordType.zuanMin);
 

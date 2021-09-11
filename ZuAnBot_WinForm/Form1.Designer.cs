@@ -49,12 +49,12 @@ namespace ZuAnBot_WinForm
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(49, 75);
+            this.label2.Location = new System.Drawing.Point(74, 79);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(269, 20);
+            this.label2.Size = new System.Drawing.Size(229, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "在任意聊天框中按Delete即可";
+            this.label2.Text = "在任意聊天框中按F1即可";
             // 
             // label3
             // 
@@ -74,8 +74,11 @@ namespace ZuAnBot_WinForm
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "欢迎来到祖安";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
