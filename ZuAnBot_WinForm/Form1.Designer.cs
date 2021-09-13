@@ -36,8 +36,8 @@ namespace ZuAnBot_WinForm
             this.label6 = new System.Windows.Forms.Label();
             this.label_kuangpen = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label_qingpen = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -115,6 +115,16 @@ namespace ZuAnBot_WinForm
             this.label4.TabIndex = 3;
             this.label4.Text = "F3";
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(169, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "F2";
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -125,16 +135,6 @@ namespace ZuAnBot_WinForm
             this.label1.Size = new System.Drawing.Size(37, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "按键";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(169, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "F2";
             // 
             // label7
             // 
