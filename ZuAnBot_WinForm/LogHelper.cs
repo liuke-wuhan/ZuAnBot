@@ -13,8 +13,6 @@ namespace ZuAnBot_WinForm
     public class Logger
     {
         private ILog _logger = null;
-        private int _indentation = 0;
-
         public Logger(string logDirName = null, string loggerName = "liuke")
         {
             if (logDirName == null)
@@ -41,15 +39,13 @@ namespace ZuAnBot_WinForm
         /// <param name="logDirName"></param>
         private void InitLogger(string logDirName, string loggerName)
         {
-            string addinPath = typeof(Logger).Assembly.Location;
-            string folder = Path.GetDirectoryName(addinPath);
-            Uri uri = new Uri(Path.Combine(folder, "log4net_lk.config"), UriKind.Absolute);//日志配置文件位置
-
             string logFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TEMP", logDirName);
             if (!Directory.Exists(logFolder)) Directory.CreateDirectory(logFolder);
             log4net.GlobalContext.Properties["fname"] = Path.Combine(logFolder, "log");//日志存放位置
 
-            log4net.Config.XmlConfigurator.Configure(uri);
+            var stream = ManifestResourceUtils.GetStream("log4net.config");
+            log4net.Config.XmlConfigurator.Configure(stream);
+            stream.Close();
             //创建一个实例，名字可随便取
             _logger = LogManager.GetLogger(loggerName);
             _logger.Info("==================初始化Logger====================");

@@ -8,6 +8,8 @@ namespace ZuAnBot_WinForm
 {
     static class Program
     {
+        public static log4net.ILog logger;
+
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -16,6 +18,9 @@ namespace ZuAnBot_WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            logger = new Logger().Logger4;
+
             Application.Run(new Form1());
         }
     }

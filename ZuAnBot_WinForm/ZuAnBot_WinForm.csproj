@@ -39,6 +39,7 @@
   <PropertyGroup>
     <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
@@ -96,11 +97,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
     <EmbeddedResource Include="Assets\zuanWords_max.json" />
     <EmbeddedResource Include="Assets\zuanWords_min.json" />
     <EmbeddedResource Include="Assets\caiHongPi.json" />
+    <EmbeddedResource Include="Assets\log4net.config" />
     <None Include="ILMerge.props" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
