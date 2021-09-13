@@ -29,6 +29,9 @@ namespace ZuAnBot_WinForm
             hook.HookedKeys.Add(Keys.F2);
             hook.HookedKeys.Add(Keys.F3);
             hook.HookedKeys.Add(Keys.F4);
+#if DEBUG
+            hook.HookedKeys.Add(Keys.F12);
+#endif
             hook.hook();
         }
 
@@ -41,8 +44,19 @@ namespace ZuAnBot_WinForm
                 word = Apis.GetLoacalWord(Apis.WordType.zuanMax);
             else if (e.KeyCode == Keys.F4)
                 word = Apis.GetLoacalWord(Apis.WordType.chp);
+#if DEBUG
+            else
+            {
+                int index;
+                word = Apis.GetTestWord(out index);
+                Program.logger.Info($"index：{index}。消息：{word}");
+            }
+#endif
 
+#if !DEBUG
             Program.logger.Info($"按键：{e.KeyCode}。消息：{word}");
+#endif
+
 
             Simulate.Events().
                 Click(WindowsInput.Events.KeyCode.Enter).Wait(75).

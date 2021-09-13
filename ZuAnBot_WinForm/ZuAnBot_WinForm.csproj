@@ -121,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".nuget\mouse-keyboard-hook-logo.png" />
-    <Content Include="Assets\favicon.ico" />
     <EmbeddedResource Include="Assets\祖安.ico" />
     <Content Include="ILMergeOrder.txt" />
     <Content Include="Assets\lol.ico" />

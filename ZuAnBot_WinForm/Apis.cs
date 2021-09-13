@@ -63,9 +63,22 @@ namespace ZuAnBot_WinForm
             return word;
         }
 
+        static int i = 0;
+        public static string GetTestWord(out int index)
+        {
+            index = i;
+            if (i >= zuanWords_min.words.Count) return "测试完毕！";
+
+            Words words = zuanWords_min;
+
+            var word = words.words[i++];
+
+            return word;
+        }
+
         public enum WordType
         {
-            zuanMin,zuanMax,chp
+            zuanMin, zuanMax, chp
         }
     }
 }
