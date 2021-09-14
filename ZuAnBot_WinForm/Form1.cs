@@ -30,7 +30,7 @@ namespace ZuAnBot_WinForm
             hook.HookedKeys.Add(Keys.F3);
             hook.HookedKeys.Add(Keys.F4);
 #if DEBUG
-            hook.HookedKeys.Add(Keys.F12);
+            hook.HookedKeys.Add(Keys.Delete);
 #endif
             hook.hook();
         }
