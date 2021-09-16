@@ -28,7 +28,7 @@ namespace ZuAnBot_WinForm
             hook.KeyUp += Hook_KeyUp;
             hook.HookedKeys.Add(Keys.F2);
             hook.HookedKeys.Add(Keys.F3);
-            hook.HookedKeys.Add(Keys.F4);
+            //hook.HookedKeys.Add(Keys.F4);
 #if DEBUG
             hook.HookedKeys.Add(Keys.Delete);
 #endif
