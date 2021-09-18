@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -70,9 +72,56 @@ namespace ZuAnBot_WinForm
             hook.unhook();
         }
 
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        private void Form1_SizeChanged(object sender, EventArgs e)
         {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                //notifyIcon1.Visible = true;
+                Hide();
 
+                using (var writter = File.CreateText(Path.Combine(Logger.logPath, "句柄.txt")))
+                {
+                    writter.Write(this.Handle.ToInt32().ToString());
+                }
+            }
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            //notifyIcon1.Visible = false;
+            Show();
+            WindowState = FormWindowState.Normal;
+            Focus();
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == IPCHelper.WM_COPYDATA)
+            {
+                CopyData cds = (CopyData)Marshal.PtrToStructure(m.LParam, typeof(CopyData)); // 接收封装的消息
+                string message = cds.lpData; // 获取消息内容
+                // 自定义行为
+                if (message == "显示")
+                {
+                    notifyIcon1_DoubleClick(this, null);
+                }
+                else if (message == "隐藏")
+                {
+                    Form1_SizeChanged(this, null);
+                }
+            }
+
+            base.WndProc(ref m);
+        }
+
+        private void 显示ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            notifyIcon1_DoubleClick(this, null);
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

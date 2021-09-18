@@ -13,6 +13,8 @@ namespace ZuAnBot_WinForm
     public class Logger
     {
         private ILog _logger = null;
+        public static string logPath;
+
         public Logger(string logDirName = null, string loggerName = "liuke")
         {
             if (logDirName == null)
@@ -39,9 +41,9 @@ namespace ZuAnBot_WinForm
         /// <param name="logDirName"></param>
         private void InitLogger(string logDirName, string loggerName)
         {
-            string logFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TEMP", logDirName);
-            if (!Directory.Exists(logFolder)) Directory.CreateDirectory(logFolder);
-            log4net.GlobalContext.Properties["fname"] = Path.Combine(logFolder, "log");//日志存放位置
+            logPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TEMP", logDirName);
+            if (!Directory.Exists(logPath)) Directory.CreateDirectory(logPath);
+            log4net.GlobalContext.Properties["fname"] = Path.Combine(logPath, "log");//日志存放位置
 
             var stream = ManifestResourceUtils.GetStream("log4net.config");
             log4net.Config.XmlConfigurator.Configure(stream);
