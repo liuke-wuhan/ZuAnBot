@@ -13,11 +13,11 @@
 
 # 截图
 
-![/截图](https://github.com/liuke-wuhan/ZuAnBot/blob/master/截图_游戏.png)
+![/截图](https://github.com/liuke-wuhan/ZuAnBot/blob/master/截图_游戏.jpg)
 
 ![/截图](https://github.com/liuke-wuhan/ZuAnBot/blob/master/截图_软件.png)
 
-![/截图](https://github.com/liuke-wuhan/ZuAnBot/blob/master/截图_记事本.png)
+![/截图](https://github.com/liuke-wuhan/ZuAnBot/blob/master/截图_记事本.jpg)
 
 ![/截图](https://github.com/liuke-wuhan/ZuAnBot/blob/master/截图_客户端.png)
 
