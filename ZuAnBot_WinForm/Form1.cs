@@ -30,7 +30,7 @@ namespace ZuAnBot_WinForm
             hook.KeyUp += Hook_KeyUp;
             hook.HookedKeys.Add(Keys.F2);
             hook.HookedKeys.Add(Keys.F3);
-            //hook.HookedKeys.Add(Keys.F4);
+            hook.HookedKeys.Add(Keys.F12);
 #if DEBUG
             hook.HookedKeys.Add(Keys.Delete);
 #endif
@@ -44,8 +44,11 @@ namespace ZuAnBot_WinForm
                 word = Apis.GetLoacalWord(Apis.WordType.zuanMin);
             else if (e.KeyCode == Keys.F3)
                 word = Apis.GetLoacalWord(Apis.WordType.zuanMax);
-            else if (e.KeyCode == Keys.F4)
-                word = Apis.GetLoacalWord(Apis.WordType.chp);
+            else if (e.KeyCode == Keys.F12)
+            {
+                Program.logger.Error($"上个语录被屏蔽");
+                return;
+            }
 #if DEBUG
             else
             {
