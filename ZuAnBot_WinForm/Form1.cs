@@ -39,11 +39,11 @@ namespace ZuAnBot_WinForm
 
         private void Hook_KeyUp(object sender, KeyEventArgs e)
         {
-            string word = "";
+            string word = checkBox_all.Checked? "all/ ":"";
             if (e.KeyCode == Keys.F2)
-                word = Apis.GetLoacalWord(Apis.WordType.zuanMin);
+                word += Apis.GetLoacalWord(Apis.WordType.zuanMin);
             else if (e.KeyCode == Keys.F3)
-                word = Apis.GetLoacalWord(Apis.WordType.zuanMax);
+                word += Apis.GetLoacalWord(Apis.WordType.zuanMax);
             else if (e.KeyCode == Keys.F12)
             {
                 Program.logger.Error($"上个语录被屏蔽");
