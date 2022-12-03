@@ -32,6 +32,7 @@ namespace ZuAnBot_WinForm
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label_kuangpen = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,7 +45,8 @@ namespace ZuAnBot_WinForm
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.checkBox_perWord = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -67,23 +69,39 @@ namespace ZuAnBot_WinForm
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label_qingpen, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.checkBox_all, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.checkBox_perWord, 0, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(238, 124);
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(317, 192);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(65, 126);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 15);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "F10";
             // 
             // label_kuangpen
             // 
             this.label_kuangpen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_kuangpen.AutoSize = true;
-            this.label_kuangpen.Location = new System.Drawing.Point(164, 70);
+            this.label_kuangpen.Location = new System.Drawing.Point(219, 88);
+            this.label_kuangpen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_kuangpen.Name = "label_kuangpen";
-            this.label_kuangpen.Size = new System.Drawing.Size(29, 12);
+            this.label_kuangpen.Size = new System.Drawing.Size(37, 15);
             this.label_kuangpen.TabIndex = 2;
             this.label_kuangpen.Text = "狂喷";
             this.toolTip1.SetToolTip(this.label_kuangpen, "会被LOL屏蔽、禁言。可在LOL客户端聊天中使用");
@@ -92,9 +110,10 @@ namespace ZuAnBot_WinForm
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(52, 70);
+            this.label4.Location = new System.Drawing.Point(69, 88);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 12);
+            this.label4.Size = new System.Drawing.Size(23, 15);
             this.label4.TabIndex = 3;
             this.label4.Text = "F3";
             // 
@@ -102,9 +121,10 @@ namespace ZuAnBot_WinForm
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 40);
+            this.label2.Location = new System.Drawing.Point(69, 50);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.Size = new System.Drawing.Size(23, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "F2";
             // 
@@ -113,9 +133,10 @@ namespace ZuAnBot_WinForm
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 10.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(42, 6);
+            this.label1.Location = new System.Drawing.Point(56, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 19);
+            this.label1.Size = new System.Drawing.Size(48, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "按键";
             // 
@@ -124,9 +145,10 @@ namespace ZuAnBot_WinForm
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(160, 6);
+            this.label7.Location = new System.Drawing.Point(214, 7);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 19);
+            this.label7.Size = new System.Drawing.Size(48, 25);
             this.label7.TabIndex = 0;
             this.label7.Text = "功能";
             // 
@@ -134,9 +156,10 @@ namespace ZuAnBot_WinForm
             // 
             this.label_qingpen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_qingpen.AutoSize = true;
-            this.label_qingpen.Location = new System.Drawing.Point(164, 40);
+            this.label_qingpen.Location = new System.Drawing.Point(219, 50);
+            this.label_qingpen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_qingpen.Name = "label_qingpen";
-            this.label_qingpen.Size = new System.Drawing.Size(29, 12);
+            this.label_qingpen.Size = new System.Drawing.Size(37, 15);
             this.label_qingpen.TabIndex = 0;
             this.label_qingpen.Text = "轻喷";
             this.toolTip1.SetToolTip(this.label_qingpen, "不会被LOL屏蔽、禁言");
@@ -145,10 +168,10 @@ namespace ZuAnBot_WinForm
             // 
             this.checkBox_all.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox_all.AutoSize = true;
-            this.checkBox_all.Location = new System.Drawing.Point(148, 99);
-            this.checkBox_all.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_all.Location = new System.Drawing.Point(201, 124);
+            this.checkBox_all.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox_all.Name = "checkBox_all";
-            this.checkBox_all.Size = new System.Drawing.Size(60, 16);
+            this.checkBox_all.Size = new System.Drawing.Size(74, 19);
             this.checkBox_all.TabIndex = 4;
             this.checkBox_all.Text = "所有人";
             this.toolTip1.SetToolTip(this.checkBox_all, "是否发送所有人消息");
@@ -169,40 +192,56 @@ namespace ZuAnBot_WinForm
             this.显示ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 52);
             // 
             // 显示ToolStripMenuItem
             // 
             this.显示ToolStripMenuItem.Name = "显示ToolStripMenuItem";
-            this.显示ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.显示ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
             this.显示ToolStripMenuItem.Text = "显示";
             this.显示ToolStripMenuItem.Click += new System.EventHandler(this.显示ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
-            // label3
+            // label5
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(49, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 12);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "F10";
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(65, 164);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 15);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "F11";
+            // 
+            // checkBox_perWord
+            // 
+            this.checkBox_perWord.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox_perWord.AutoSize = true;
+            this.checkBox_perWord.Checked = true;
+            this.checkBox_perWord.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_perWord.Location = new System.Drawing.Point(193, 162);
+            this.checkBox_perWord.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBox_perWord.Name = "checkBox_perWord";
+            this.checkBox_perWord.Size = new System.Drawing.Size(89, 19);
+            this.checkBox_perWord.TabIndex = 4;
+            this.checkBox_perWord.Text = "逐字发送";
+            this.checkBox_perWord.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 125);
+            this.ClientSize = new System.Drawing.Size(319, 193);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -234,6 +273,8 @@ namespace ZuAnBot_WinForm
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkBox_all;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkBox_perWord;
     }
 }
 

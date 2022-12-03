@@ -1,0 +1,17 @@
+﻿<hc:Window x:Class="ZuAnBot_Wpf.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZuAnBot_Wpf"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="欢迎来到祖安" Height="450" Width="800" Icon="/Assets/祖安.ico">
+  <hc:Window.NonClientAreaContent>
+    <StackPanel Orientation="Horizontal" Background="#FFA4A4A4">
+    </StackPanel>
+  </hc:Window.NonClientAreaContent>
+  <Grid>
+        
+    </Grid>
+</hc:Window>

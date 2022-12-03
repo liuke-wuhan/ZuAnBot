@@ -40,7 +40,7 @@ namespace ZuAnBot_WinForm
 
         private void Hook_KeyUp(object sender, KeyEventArgs e)
         {
-            string word = checkBox_all.Checked? "all/ ":"";
+            string word = checkBox_all.Checked ? "all/ " : "";
             if (e.KeyCode == Keys.F2)
                 word += Apis.GetLoacalWord(Apis.WordType.zuanMin);
             else if (e.KeyCode == Keys.F3)
@@ -68,12 +68,26 @@ namespace ZuAnBot_WinForm
             Program.logger.Info($"按键：{e.KeyCode}。消息：{word}");
 #endif
 
+            var builder = Simulate.Events();
+            if (checkBox_perWord.Checked)
+            {
+                foreach (var item in word)
+                {
+                    builder = builder.
+                        Click(WindowsInput.Events.KeyCode.Enter).Wait(75).
+                        Click(item).Wait(75).
+                        Click(WindowsInput.Events.KeyCode.Enter).Wait(75);
 
-            Simulate.Events().
-                Click(WindowsInput.Events.KeyCode.Enter).Wait(75).
-                Click(word).Wait(75).
-                Click(WindowsInput.Events.KeyCode.Enter).
-                Invoke();
+                }
+            }
+            else
+            {
+                builder = builder.
+                    Click(WindowsInput.Events.KeyCode.Enter).Wait(75).
+                    Click(word).Wait(75).
+                    Click(WindowsInput.Events.KeyCode.Enter).Wait(75);
+            }
+            builder.Invoke();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
