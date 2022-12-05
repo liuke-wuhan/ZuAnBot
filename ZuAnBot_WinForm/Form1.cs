@@ -31,6 +31,7 @@ namespace ZuAnBot_WinForm
             hook.HookedKeys.Add(Keys.F2);
             hook.HookedKeys.Add(Keys.F3);
             hook.HookedKeys.Add(Keys.F10);
+            hook.HookedKeys.Add(Keys.F11);
             hook.HookedKeys.Add(Keys.F12);
 #if DEBUG
             hook.HookedKeys.Add(Keys.Delete);
@@ -48,6 +49,11 @@ namespace ZuAnBot_WinForm
             else if (e.KeyCode == Keys.F10)
             {
                 this.checkBox_all.Checked = !this.checkBox_all.Checked;
+                return;
+            }
+            else if (e.KeyCode == Keys.F11)
+            {
+                this.checkBox_perWord.Checked = !this.checkBox_perWord.Checked;
                 return;
             }
             else if (e.KeyCode == Keys.F12)
