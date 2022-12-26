@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="ZuAnBot_Wpf.Views.WordsLibrarySet"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZuAnBot_Wpf.Views"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:prism ="http://prismlibrary.com/"
+             xmlns:i ="http://schemas.microsoft.com/xaml/behaviors"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="650">
+  <prism:Dialog.WindowStyle>
+    <Style TargetType="Window">
+      <Setter Property="Height" Value="450"/>
+      <Setter Property="Width" Value="650"/>
+      <Setter Property="prism:Dialog.WindowStartupLocation" Value="CenterScreen"/>
+    </Style>
+  </prism:Dialog.WindowStyle>
+
+  <UserControl.Resources>
+    <Style x:Key="toolBtn" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
+      <Setter Property="Margin" Value="0,5,0,5"/>
+      <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+  </UserControl.Resources>
+
+  <Grid Margin="5">
+    <Grid.RowDefinitions>
+      <RowDefinition/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1">
+      <TabControl 
+      ItemsSource="{Binding Library.Categories}" TabStripPlacement="Left" Style="{StaticResource TabControlInLine}">
+        <!--header模板-->
+        <TabControl.ItemTemplate>
+          <DataTemplate>
+            <TextBlock Text="{Binding CategoryName}"/>
+          </DataTemplate>
+        </TabControl.ItemTemplate>
+        <!--页面内容模板-->
+        <TabControl.ContentTemplate>
+          <DataTemplate>
+            <Grid Margin="5">
+              <Grid.InputBindings>
+                <KeyBinding Key="Insert" Command="{Binding AddCommand}"/>
+                <KeyBinding Key="Delete" Command="{Binding DeleteCommand}"/>
+                <KeyBinding Key="C" Modifiers="Ctrl" Command="{Binding CopyCommand}"/>
+                <KeyBinding Key="V" Modifiers="Ctrl" Command="{Binding PasteCommand}"/>
+              </Grid.InputBindings>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+              </Grid.RowDefinitions>
+              <StackPanel 
+              Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Command="{Binding AddCommand}" Style="{DynamicResource toolBtn}" ToolTip="新增">
+                  <Image Source="/Assets/images/添加.png"/>
+                </Button>
+                <Button Command="{Binding DeleteCommand}" Style="{DynamicResource toolBtn}" ToolTip="删除">
+                  <Image Source="/Assets/images/删除.png"/>
+                </Button>
+                <Button Command="{Binding EditCommand}" Style="{DynamicResource toolBtn}" ToolTip="编辑">
+                  <Image Source="/Assets/images/编辑.png"/>
+                </Button>
+                <hc:Divider Orientation="Vertical" Margin="0,5,0,5"/>
+                <Button Command="{Binding CopyCommand}" Style="{DynamicResource toolBtn}" ToolTip="复制">
+                  <Image Source="/Assets/images/复制.png"/>
+                </Button>
+                <hc:SplitButton HitMode="Hover" BorderThickness="0" ToolTip="复制到">
+                  <Image Source="/Assets/images/复制.png"/>
+                  <hc:SplitButton.DropDownContent>
+                    <ItemsControl ItemsSource="{Binding TargetCategories}">
+                      <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                          <MenuItem Header="{Binding CategoryName}" Command="{Binding CopyToCommand}" CommandParameter="{Binding CategoryName}"/>
+                        </DataTemplate>
+                      </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                  </hc:SplitButton.DropDownContent>
+                </hc:SplitButton>
+                <Button Command="{Binding PasteCommand}" Style="{DynamicResource toolBtn}" ToolTip="粘贴">
+                  <Image Source="/Assets/images/粘贴.png"/>
+                </Button>
+              </StackPanel>
+              <ListBox ItemsSource="{Binding Words}" Grid.Row="1">
+                <ListBox.ItemContainerStyle>
+                  <Style 
+                  TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}">
+                    <Setter Property="IsSelected" Value="{Binding IsSelected,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                  </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                  <DataTemplate>
+                    <TextBlock Text="{Binding Content}" TextWrapping="Wrap">
+                      <TextBlock.InputBindings>
+                        <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding Category.EditCommand}"/><!--双击修改-->
+                      </TextBlock.InputBindings>
+                      <TextBlock.ContextMenu>
+                        <ContextMenu>
+                          <MenuItem Header="新增" Command="{Binding Category.AddCommand}"/>
+                          <MenuItem Header="删除" Command="{Binding Category.DeleteCommand}"/>
+                          <MenuItem Header="修改" Command="{Binding Category.EditCommand}"/>
+                          <MenuItem Header="复制" Command="{Binding Category.CopyCommand}"/>
+                          <MenuItem Header="复制到" Command="{Binding Category.CopyToCommand}"/>
+                          <MenuItem Header="粘贴" Command="{Binding Category.PasteCommand}"/>
+                        </ContextMenu>
+                      </TextBlock.ContextMenu>
+                    </TextBlock>
+                  </DataTemplate>
+                </ListBox.ItemTemplate>
+              </ListBox>
+            </Grid>
+
+          </DataTemplate>
+        </TabControl.ContentTemplate>
+      </TabControl>
+    </Border>
+    <Button Content="保存" Command="{Binding SaveCommand}" IsDefault="True" Style="{StaticResource ButtonPrimary}" Grid.Row="1" HorizontalAlignment="Right" Margin="0,5,120,5" Width="100"/>
+    <Button Content="取消" Command="{Binding CancelCommand}" IsCancel="True" Grid.Row="1" HorizontalAlignment="Right" Width="100"/>
+  </Grid>
+</UserControl>

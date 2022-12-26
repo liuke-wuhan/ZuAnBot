@@ -1,0 +1,13 @@
+{
+  "env": "sit",
+  "envs": [
+    {
+      "name": "sit",
+      "useApi": "https://localhost:7286"
+    },
+    {
+      "name": "production",
+      "useApi": "https://localhost:7286"
+    }
+  ]
+}

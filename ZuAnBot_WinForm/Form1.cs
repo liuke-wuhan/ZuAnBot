@@ -123,6 +123,10 @@ namespace ZuAnBot_WinForm
             Focus();
         }
 
+        /// <summary>
+        /// 接收IPC消息，用于确保只打开一个程序
+        /// </summary>
+        /// <param name="m"></param>
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == IPCHelper.WM_COPYDATA)

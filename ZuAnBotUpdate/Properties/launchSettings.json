@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ZuAnBotUpdate": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\Admin\\AppData\\Local\\Temp\\祖安助手.exe F:\\work\\LOL\\ZuAnBot\\ZuAnBot_Wpf\\bin\\Debug\\net472\\祖安助手.exe"
+    }
+  }
+}
