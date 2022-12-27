@@ -12,7 +12,7 @@
            prism:ViewModelLocator.AutoWireViewModel="True"
            mc:Ignorable="d" WindowStartupLocation="CenterScreen"
            hc:Dialog.Token="{x:Static const:DialogTokens.MainWindow}"
-           Title="{x:Static const:Titles.Main}" Height="250" Width="350" Icon="/Assets/Images/祖安.ico" StateChanged="Window_StateChanged" ResizeMode="CanMinimize">
+           Title="{x:Static const:Titles.Main}" Height="250" Width="360" Icon="/Assets/Images/祖安.ico" StateChanged="Window_StateChanged" ResizeMode="CanMinimize">
   <Window.Resources>
     <Style x:Key="NotifyBtn"
            TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
