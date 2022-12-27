@@ -1,13 +1,13 @@
 {
-  "env": "sit",
+  "env": "prod",
   "envs": [
     {
       "name": "sit",
-      "useApi": "https://localhost:7286"
+      "useApi": "http://localhost:7286"
     },
     {
-      "name": "production",
-      "useApi": "https://localhost:7286"
+      "name": "prod",
+      "useApi": "http://www.dongdongtuotuo.top"
     }
   ]
 }

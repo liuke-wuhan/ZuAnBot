@@ -97,7 +97,7 @@ namespace ZuAnBot_Wpf.ViewModels
 
                 HookKeys();
 
-                Version = "v" + System.Windows.Application.ResourceAssembly.GetName().Version.ToString(2);
+                Version = "v" + System.Windows.Application.ResourceAssembly.GetName().Version.ToString(3);
 
                 await InitNeedUpdate();
             }
