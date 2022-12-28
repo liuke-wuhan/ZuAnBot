@@ -7,7 +7,7 @@
     },
     {
       "name": "prod",
-      "useApi": "http://www.dongdongtuotuo.top"
+      "useApi": "http://www.dongdongtuotuo.top:8080"
     }
   ]
 }
