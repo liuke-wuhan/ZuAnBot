@@ -70,6 +70,8 @@ namespace ZuAnBot_Wpf.Helper
             else
                 msg += e.Message;
 
+            new LogHelper().Logger4.Error(msg);
+
             MessageHelper.Error(msg);
         }
     }

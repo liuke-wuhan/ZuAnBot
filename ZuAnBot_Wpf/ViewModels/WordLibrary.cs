@@ -35,6 +35,7 @@ namespace ZuAnBot_Wpf.ViewModels
     /// </summary>
     public class WordsCategory : BindableBase
     {
+        [JsonIgnore]
         public WordsLibrary Library { get; set; }
 
         private ObservableCollection<Word> _Words;

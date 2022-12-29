@@ -23,25 +23,26 @@ namespace ZuAnBot_Wpf.Helper
         /// <returns></returns>
         public static WordsLibrary DeserializeWordsLibrary()
         {
-            var stream = new FileStream(LocalConfigHelper.WordsLibraryPath,FileMode.Open) ;
-
-            #region 给word的category导航属性赋值
-            var libray = DeserializeStream<WordsLibrary>(stream);
-            foreach (var category in libray.Categories)
+            using (var stream = new FileStream(LocalConfigHelper.WordsLibraryPath, FileMode.Open))
             {
-                category.TargetCategories = libray.Categories.Where(x => x != category).ToList();
-
-                category.Library = libray;
-
-                foreach (var word in category.Words)
+                #region 给word的category导航属性赋值
+                var libray = DeserializeStream<WordsLibrary>(stream);
+                foreach (var category in libray.Categories)
                 {
-                    word.Category = category;
+                    category.TargetCategories = libray.Categories.Where(x => x != category).ToList();
+
+                    category.Library = libray;
+
+                    foreach (var word in category.Words)
+                    {
+                        word.Category = category;
+                    }
                 }
+
+                #endregion 给word的category导航属性赋值
+
+                return libray; 
             }
-
-            #endregion 给word的category导航属性赋值
-
-            return libray;
         }
 
         /// <summary>
@@ -52,11 +53,14 @@ namespace ZuAnBot_Wpf.Helper
         {
             if (library == null) return;
 
-            using (var streamWritter = File.CreateText(LocalConfigHelper.WordsLibraryPath))
+            var tempfile = Path.GetTempFileName();
+            using (var streamWritter = File.CreateText(tempfile))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(streamWritter, library);
             }
+
+            File.Copy(tempfile, LocalConfigHelper.WordsLibraryPath, true);
         }
 
         private static T DeserializeStream<T>(Stream stream)

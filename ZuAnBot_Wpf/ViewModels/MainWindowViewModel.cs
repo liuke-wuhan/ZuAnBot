@@ -138,6 +138,7 @@ namespace ZuAnBot_Wpf.ViewModels
             catch (Exception e)
             {
                 e.Show("读取词库失败！");
+                File.Delete(LocalConfigHelper.WordsLibraryPath);
                 App.Current.Shutdown();
             }
         }

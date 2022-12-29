@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 
-namespace ZuAnBot_Wpf.Helper
+namespace ZuAnBotUpdate
 {
     public class LogHelper
     {
@@ -18,25 +18,20 @@ namespace ZuAnBot_Wpf.Helper
         public LogHelper(string logDirName = null, string loggerName = "ZuanBot")
         {
             if (logDirName == null)
-            {
                 InitLogger("ZuanBot", loggerName);
-            }
             else
             {
                 InitLogger(logDirName, loggerName);
             }
         }
 
-        /// <summary>
-        /// 若没初始化，日志将放入%temp%/CECommonLog文件夹
-        /// </summary>
         public ILog Logger4
         {
             get { return _logger; }
         }
 
         /// <summary>
-        /// 初始化日志存放位置，若不初始化则存放在Temp/CECommonLog
+        /// 日志将放入%temp%/CECommonLog文件夹
         /// </summary>
         /// <param name="logDirName"></param>
         private void InitLogger(string logDirName, string loggerName)
