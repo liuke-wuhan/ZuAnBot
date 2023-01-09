@@ -295,18 +295,18 @@ namespace ZuAnBot_Wpf.ViewModels
                     foreach (var item in word)
                     {
                         builder = builder.
-                            Click(WindowsInput.Events.KeyCode.Enter).Wait(75).
-                            Click(item).Wait(75).
-                            Click(WindowsInput.Events.KeyCode.Enter).Wait(75);
+                            Click(WindowsInput.Events.KeyCode.Enter).Wait(100).
+                            Click(item).Wait(100).
+                            Click(WindowsInput.Events.KeyCode.Enter).Wait(100);
 
                     }
                 }
                 else
                 {
                     builder = builder.
-                        Click(WindowsInput.Events.KeyCode.Enter).Wait(75).
-                        Click(word).Wait(75).
-                        Click(WindowsInput.Events.KeyCode.Enter).Wait(75);
+                        Click(WindowsInput.Events.KeyCode.Enter).Wait(100).
+                        Click(word).Wait(100).
+                        Click(WindowsInput.Events.KeyCode.Enter).Wait(100);
                 }
                 builder.Invoke();
             }

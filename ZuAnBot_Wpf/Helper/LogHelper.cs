@@ -10,36 +10,29 @@ using System.Windows;
 
 namespace ZuAnBot_Wpf.Helper
 {
-    public class LogHelper
+    public static class LogHelper
     {
-        private ILog _logger = null;
+        private static ILog _logger = null;
         public static string logPath;
 
-        public LogHelper(string logDirName = null, string loggerName = "ZuanBot")
+        static LogHelper()
         {
-            if (logDirName == null)
-            {
-                InitLogger("ZuanBot", loggerName);
-            }
-            else
-            {
-                InitLogger(logDirName, loggerName);
-            }
+            InitLogger("ZuanBot", "ZuanBot");
         }
 
         /// <summary>
-        /// 若没初始化，日志将放入%temp%/CECommonLog文件夹
+        /// 若没初始化，日志将放入%temp%\ZuanBot文件夹
         /// </summary>
-        public ILog Logger4
+        public static ILog Log
         {
             get { return _logger; }
         }
 
         /// <summary>
-        /// 初始化日志存放位置，若不初始化则存放在Temp/CECommonLog
+        /// 初始化日志存放位置，若不初始化则存放在%temp%\ZuanBot
         /// </summary>
         /// <param name="logDirName"></param>
-        private void InitLogger(string logDirName, string loggerName)
+        private static void InitLogger(string logDirName, string loggerName)
         {
             logPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TEMP", logDirName);
             if (!Directory.Exists(logPath)) Directory.CreateDirectory(logPath);
