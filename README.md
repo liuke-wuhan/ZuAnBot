@@ -1,6 +1,8 @@
 # ZuAnBot（祖安助手）
 一键喷人（随机输入骂人语录），可在英雄联盟游戏和客户端中使用。只为反击喷子！欢迎来到祖安。
 
+受[祖安宝典](https://github.com/cndiandian/zuanbot.com)启发，想到自己玩LOL经常受喷子的气，还没能力喷回去，于是开发了这个小工具 :smirk:
+
 # 使用
 从[Latest Release](https://github.com/liuke-wuhan/ZuAnBot/releases/latest)中下载软件：ZuAnBot.exe
 
