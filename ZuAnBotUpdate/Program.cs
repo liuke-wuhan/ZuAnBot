@@ -20,9 +20,15 @@ namespace ZuAnBotUpdate
 
                 if (string.IsNullOrWhiteSpace(path1) || string.IsNullOrWhiteSpace(path2)) return;
 
-                var process = Process.GetProcessesByName("祖安助手").FirstOrDefault();
+                logger.Info($"源：{path1} 目标：{path2}");
 
-                if (process == null || process.MainModule?.FileName != path2) return;
+                var process = Process.GetProcesses().FirstOrDefault(x=>x.MainWindowTitle=="祖安助手");
+
+                if (process == null || process.MainModule?.FileName != path2)
+                {
+                    logger.Info($"未找到祖安助手进程");
+                    return;
+                }
 
                 process.Kill();
                 process.WaitForExit(1000);

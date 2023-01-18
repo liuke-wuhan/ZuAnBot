@@ -239,7 +239,7 @@ namespace ZuAnBot_Wpf.ViewModels
                             stream.CopyTo(tempStream);
                         }
 
-                        var startInfo = new ProcessStartInfo(tempPath, $"{file} {assembly.Location}");
+                        var startInfo = new ProcessStartInfo(tempPath, $"\"{file}\" \"{assembly.Location}\"");
                         //设置不在新窗口中启动新的进程
                         startInfo.CreateNoWindow = true;
                         //不使用操作系统使用的shell启动进程
