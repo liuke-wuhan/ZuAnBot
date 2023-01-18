@@ -8,7 +8,10 @@
 
 软件免安装，下载后直接打开即可
 
-注意节制，软件的初心是对付喷子的，不要成为了喷子 :smirk:
+## 注意
+* 注意节制，软件的初心是对付喷子的，不要成为了喷子 :smirk:
+
+* 不要高频使用，用太多被举报的话可能还是有禁言或封号的风险，我自己用的不是很多，只是被禁言一次，兄弟们被封号可以去[QQ群](https://github.com/liuke-wuhan/ZuAnBot#%E7%A4%BE%E7%BE%A4)或者[Issues](https://github.com/liuke-wuhan/ZuAnBot/issues)上反映一下具体封号的使用场景
 
 # 社群
 * QQ群：
