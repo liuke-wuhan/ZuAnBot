@@ -29,7 +29,8 @@ namespace ZuAnBot_Wpf.Views
         {
             InitializeComponent();
 
-            checkBox_notifyIcon.SetBinding(CheckBox.IsCheckedProperty, new Binding("IsChecked") { Source = checkBox });
+            checkBox_isPerword_notifyIcon.SetBinding(CheckBox.IsCheckedProperty, new Binding("IsChecked") { Source = checkBox_isPerword });
+            checkBox_isAll_notifyIcon.SetBinding(CheckBox.IsCheckedProperty, new Binding("IsChecked") { Source = checkBox_isAll });
         }
 
         /// <summary>

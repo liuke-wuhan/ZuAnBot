@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,6 +38,17 @@ namespace ZuAnBot_Wpf.ViewModels
             get { return _IsPerWord; }
             set { SetProperty(ref _IsPerWord, value); }
         }
+
+        private bool _IsAll = false;
+        /// <summary>
+        /// 是否发送所有人消息
+        /// </summary>
+        public bool IsAll
+        {
+            get { return _IsAll; }
+            set { SetProperty(ref _IsAll, value); }
+        }
+
 
         private bool _IsNotifyIconBlink;
         /// <summary>
@@ -226,7 +238,7 @@ namespace ZuAnBot_Wpf.ViewModels
                         {
                             stream.CopyTo(tempStream);
                         }
-                        
+
                         var startInfo = new ProcessStartInfo(tempPath, $"{file} {assembly.Location}");
                         //设置不在新窗口中启动新的进程
                         startInfo.CreateNoWindow = true;
@@ -261,6 +273,7 @@ namespace ZuAnBot_Wpf.ViewModels
             hook.KeyUp += Hook_KeyUp;
             hook.HookedKeys.Add(Keys.F2);
             hook.HookedKeys.Add(Keys.F3);
+            hook.HookedKeys.Add(Keys.F11);
             hook.HookedKeys.Add(Keys.F12);
             hook.hook();
         }
@@ -279,6 +292,11 @@ namespace ZuAnBot_Wpf.ViewModels
                     word += Library.GetLoacalWord("默认词库");
                 else if (e.KeyCode == Keys.F3)
                     word += Library.GetLoacalWord("自定义词库");
+                else if (e.KeyCode == Keys.F11)
+                {
+                    IsAll = !IsAll;
+                    return;
+                }
                 else if (e.KeyCode == Keys.F12)
                 {
                     IsPerWord = !IsPerWord;
@@ -289,6 +307,8 @@ namespace ZuAnBot_Wpf.ViewModels
                     return;
                 }
 
+                string allPre = IsAll ? "/all " : "";
+
                 var builder = Simulate.Events();
                 if (IsPerWord)
                 {
@@ -296,7 +316,7 @@ namespace ZuAnBot_Wpf.ViewModels
                     {
                         builder = builder.
                             Click(WindowsInput.Events.KeyCode.Enter).Wait(100).
-                            Click(item).Wait(100).
+                            Click(allPre + item).Wait(100).
                             Click(WindowsInput.Events.KeyCode.Enter).Wait(100);
 
                     }
@@ -305,7 +325,7 @@ namespace ZuAnBot_Wpf.ViewModels
                 {
                     builder = builder.
                         Click(WindowsInput.Events.KeyCode.Enter).Wait(100).
-                        Click(word).Wait(100).
+                        Click(allPre + word).Wait(100).
                         Click(WindowsInput.Events.KeyCode.Enter).Wait(100);
                 }
                 builder.Invoke();
