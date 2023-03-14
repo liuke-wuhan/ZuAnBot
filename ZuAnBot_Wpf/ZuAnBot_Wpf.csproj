@@ -46,6 +46,9 @@
 	<ItemGroup>
 	  <None Remove="Assets\Images\复制.png" />
 	  <None Remove="Assets\Url.json" />
+	  <None Remove="build.bat" />
+	  <None Remove="FodyWeavers.xml" />
+	  <None Remove="FodyWeavers.xsd" />
 	</ItemGroup>
 
 	<ItemGroup>
