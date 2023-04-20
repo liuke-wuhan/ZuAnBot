@@ -19,6 +19,7 @@ namespace ZuAnBot_Wpf
 {
     /// <summary>
     /// App.xaml 的交互逻辑
+    /// todo:多行词库
     /// </summary>
     public partial class App : PrismApplication
     {

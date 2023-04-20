@@ -49,7 +49,7 @@ namespace ZuAnBot_Wpf.ViewModels
         {
             try
             {
-                WordsHelper.CheckContent(Content);
+                WordsHelper.EnsureValidContent(Content);
 
                 var parameters = new DialogParameters();
                 parameters.Add(Params.WordContent, Content);

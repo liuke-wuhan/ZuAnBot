@@ -288,19 +288,25 @@ namespace ZuAnBot_Wpf.ViewModels
                 PasteEnabled = false;
 
                 var clipboardText = Clipboard.GetText(TextDataFormat.Text);
-                var word = new Word { Content = clipboardText, Category = this };
 
-                int index;
-                if (SelectedWord == null)
+                int offset = 1;
+                foreach (var text in clipboardText.Split('\n'))
                 {
-                    index = 0;
-                }
-                else
-                {
-                    index = Words.IndexOf(SelectedWord) + 1;
-                }
-                Words.Insert(index, word);
+                    if (!WordsHelper.IsVaileContent(text)) continue;
 
+                    var word = new Word { Content = text, Category = this };
+
+                    int index;
+                    if (SelectedWord == null)
+                    {
+                        index = 0;
+                    }
+                    else
+                    {
+                        index = Words.IndexOf(SelectedWord) + offset++;
+                    }
+                    Words.Insert(index, word);
+                }
             }
             catch (ArgumentOutOfRangeException e)
             {
@@ -335,9 +341,9 @@ namespace ZuAnBot_Wpf.ViewModels
             get { return _Content; }
             set
             {
-                value = value.Replace('\n', ' ').Replace('\r', ' ');
+                value = value.Replace('\r', char.MinValue);
 
-                WordsHelper.CheckContent(value);
+                WordsHelper.EnsureValidContent(value);
 
                 SetProperty(ref _Content, value);
             }

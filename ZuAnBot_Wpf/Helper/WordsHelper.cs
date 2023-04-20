@@ -31,16 +31,34 @@ namespace ZuAnBot_Wpf.Helper
         }
 
 
-        public static void CheckContent(string value)
+        public static void EnsureValidContent(string value)
+        {
+            if( !IsVaileContent(value,out string msg))
+            {
+                throw new ArgumentOutOfRangeException(msg, innerException: null);
+            }
+        }
+
+        private static bool IsVaileContent(string value,out string msg)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ArgumentOutOfRangeException("词条内容不为空", innerException: null);
+                msg = "词条内容不为空";
+                return false;
             }
             if (value.Length > 200)
             {
-                throw new ArgumentOutOfRangeException("词条内容不能超过200", innerException: null);
+                msg = "词条内容不能超过200";
+                return false;
             }
+
+            msg = "";
+            return true;
+        }
+
+        public static bool IsVaileContent(string value)
+        {
+            return IsVaileContent(value, out _);
         }
     }
 }
